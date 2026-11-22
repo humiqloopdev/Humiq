@@ -1,0 +1,65 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-green: #1D9E75;
+  --color-green-dk: #0F6E56;
+  --color-green-md: #16886A;
+  --color-green-lt: #D4EDDF;
+  --color-green-xlt: #EAF7F1;
+
+  --color-navy: #1A3A5C;
+  --color-navy-dk: #122b44;
+  --color-navy-lt: #E8EFF7;
+
+  --color-blue: #1D6FBF;
+  --color-blue-lt: #DBEAFE;
+
+  --color-amber: #B45309;
+  --color-amber-lt: #FEF3C7;
+
+  --color-red: #991B1B;
+  --color-red-lt: #FEE2E2;
+
+  --color-purple: #5B21B6;
+  --color-purple-lt: #EDE9FE;
+
+--font-display: "Anton", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+
+  --shadow-card: 0 2px 8px rgba(26,58,92,0.12), 0 0 0 1px rgba(209,213,219,0.5);
+  --shadow-hover: 0 8px 28px rgba(26,58,92,0.12), 0 0 0 1.5px #D4EDDF;
+  --shadow-green: 0 4px 20px rgba(29,158,117,0.18);
+}
+
+/* Minimal global resets */
+*, *::before, *::after { box-sizing: border-box; }
+body { font-family: 'DM Sans', sans-serif; background: #F9FAFB; color: #374151; margin: 0; }
+
+/* Spinner animation */
+@keyframes spin { to { transform: rotate(360deg); } }
+.spinner {
+  border: 2px solid #E5E7EB;
+  border-top-color: #1D9E75;
+  border-radius: 9999px;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+
+/* Page enter fade */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.page-enter { animation: fadeUp 0.3s ease; }
+
+/* Session report "Export PDF": print only the report, without the app navigation */
+@media print {
+  body.printing-report header,
+  body.printing-report nav,
+  body.printing-report aside { display: none !important; }
+  body.printing-report main { margin-left: 0 !important; padding-top: 0 !important; }
+  body.printing-report { background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
